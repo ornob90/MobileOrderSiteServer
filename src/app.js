@@ -9,6 +9,8 @@ const globalErrorHandler = require("./utils/globalErrorHandler");
 
 // routes
 const productRoutes = require("./routes/product");
+const cartRoutes = require("./routes/cart");
+const userRoutes = require("./routes/user");
 
 // utils
 
@@ -27,6 +29,8 @@ app.use(
 
 // router middleware
 app.use(productRoutes);
+app.use(cartRoutes);
+app.use(userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server running...");
