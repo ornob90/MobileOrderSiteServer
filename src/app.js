@@ -8,6 +8,7 @@ require("dotenv").config();
 const globalErrorHandler = require("./utils/globalErrorHandler");
 
 // routes
+const productRoutes = require("./routes/product");
 
 // utils
 
@@ -23,6 +24,9 @@ app.use(
     credentials: true,
   })
 );
+
+// router middleware
+app.use(productRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server running...");
