@@ -6,13 +6,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: {
+  userEmail: {
     type: String,
     required: true,
   },
-  userType: {
+  role: {
     type: String,
-    enum: ["buyer", "seller"],
     required: true,
   },
 });
