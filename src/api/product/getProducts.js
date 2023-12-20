@@ -2,7 +2,9 @@ const Product = require("../../models/product");
 
 const getProducts = async (req, res, next) => {
   try {
-    const { price, memory, ...filterOptions } = req.query || {};
+    const { price, memory, ...restOption } = req.query || {};
+
+    const filterOptions = {};
 
     const validatedPrice = parseFloat(price);
     const validatedMemory = parseInt(memory);
@@ -18,6 +20,12 @@ const getProducts = async (req, res, next) => {
         $lt: validatedMemory,
       };
     }
+
+    Object.entries(restOption).forEach(([key, value]) => {
+      if (value) filterOptions[key] = value.replace(/_/g, " ");
+    });
+
+    console.log(filterOptions);
 
     const products = await Product.find(filterOptions);
 
