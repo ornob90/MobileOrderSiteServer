@@ -1,3 +1,5 @@
+const Cart = require("../../models/cart");
+
 const getCartStates = async (req, res, next) => {
   try {
     const { email: userEmail } = req.params;
