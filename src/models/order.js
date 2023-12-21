@@ -13,10 +13,7 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  transactionID: {
-    type: String,
-    required: true,
-  },
+
   orderDate: {
     type: Date,
     default: Date.now,

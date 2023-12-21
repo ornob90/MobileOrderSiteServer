@@ -11,6 +11,8 @@ const globalErrorHandler = require("./utils/globalErrorHandler");
 const productRoutes = require("./routes/product");
 const cartRoutes = require("./routes/cart");
 const userRoutes = require("./routes/user");
+const favoriteRoutes = require("./routes/favorite");
+const orderRoutes = require("./routes/order");
 
 // utils
 
@@ -31,6 +33,8 @@ app.use(
 app.use(productRoutes);
 app.use(cartRoutes);
 app.use(userRoutes);
+app.use(favoriteRoutes);
+app.use(orderRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server running...");
